@@ -1,22 +1,19 @@
 "use strict";
-var Sorter = /** @class */ (function () {
-    function Sorter(collection) {
-        this.collection = collection;
-    }
-    Sorter.prototype.sort = function () {
-        var length = this.collection.length;
-        for (var i = 0; i < length; i++) {
-            for (var j = 0; j < length - i - 1; j++) {
-                if (this.collection[j] > this.collection[j + 1]) {
-                    var leftHand = this.collection[j];
-                    this.collection[j] = this.collection[j + 1];
-                    this.collection[j + 1] = leftHand;
-                }
-            }
-        }
-    };
-    return Sorter;
-}());
-var sorter = new Sorter([10, 3, -5, 0]);
+Object.defineProperty(exports, "__esModule", { value: true });
+var Sorter_1 = require("./Sorter");
+var NumCollection_1 = require("./NumCollection");
+var CharCollection_1 = require("./CharCollection");
+var LinkedList_1 = require("./LinkedList");
+var numCollection = new NumCollection_1.NumbersCollection([10, 3, -5, 0]);
+var sorter = new Sorter_1.Sorter(numCollection);
 sorter.sort();
-console.log(sorter.collection);
+console.log(numCollection.data);
+var charCollection = new CharCollection_1.CharCollection('öoalkiSADFHadqlSADJGHhkj');
+var charSort = new Sorter_1.Sorter(charCollection);
+charSort.sort();
+console.log(charCollection.data);
+var linkedList = new LinkedList_1.LinkedList(500, -10, -3, 4);
+linkedList.print();
+var sortList = new Sorter_1.Sorter(linkedList);
+sortList.sort();
+linkedList.print();
