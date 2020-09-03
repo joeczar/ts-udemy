@@ -2,6 +2,6 @@ import { User } from './models/User';
 
 const user = new User({ name: 'Azriel', age: 999 });
 
-user.save();
+user.events.on('click', () => console.log('Eat click!'));
 
-setTimeout(() => console.log(user), 2000);
+user.events.trigger('click');
