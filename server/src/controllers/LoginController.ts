@@ -36,4 +36,9 @@ class LoginController {
       res.send('You must provide a valid email and password');
     }
   }
+  @get('/logout')
+  getLogout(req: Request, res: Response) {
+    req.session = null;
+    res.redirect('/');
+  }
 }
